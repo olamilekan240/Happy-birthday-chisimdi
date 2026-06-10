@@ -7,154 +7,263 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Segoe UI', sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    min-height:100vh;
-    background:linear-gradient(135deg,#ff758c,#ff7eb3);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
+background:linear-gradient(135deg,#ff4b8b,#ff758c,#ffb6c1);
+min-height:100vh;
+overflow-x:hidden;
+color:white;
+text-align:center;
 }
 
-.container{
-    max-width:800px;
-    width:100%;
-    text-align:center;
+#giftScreen{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 
-.card{
-    background:white;
-    padding:40px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
+.gift{
+font-size:120px;
+cursor:pointer;
+animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+50%{transform:translateY(-20px);}
+}
+
+#mainContent{
+display:none;
+padding:20px;
+animation:fadeIn 2s;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
 }
 
 h1{
-    color:#ff4f81;
-    margin-bottom:15px;
+font-size:3rem;
+margin-bottom:10px;
+}
+
+h2{
+margin:20px 0;
+}
+
+.image-box{
+margin:20px auto;
+width:300px;
+height:300px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 0 20px white;
+}
+
+.image-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.message{
+max-width:800px;
+margin:auto;
+background:rgba(255,255,255,0.15);
+padding:25px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+line-height:1.8;
+font-size:18px;
 }
 
 button{
-    margin-top:20px;
-    padding:15px 30px;
-    border:none;
-    border-radius:30px;
-    background:#ff4f81;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
+padding:15px 30px;
+margin-top:20px;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+background:white;
+color:#ff4b8b;
+font-weight:bold;
 }
 
-#letter{
-    display:none;
-    text-align:left;
-    margin-top:25px;
-    line-height:1.8;
-    color:#444;
+#secret{
+display:none;
+margin-top:30px;
+font-size:24px;
+animation:fadeIn 2s;
 }
 
 .heart{
-    font-size:70px;
-    animation:beat 1s infinite;
+position:fixed;
+top:-10px;
+font-size:25px;
+animation:fall linear forwards;
 }
 
-@keyframes beat{
-    50%{
-        transform:scale(1.1);
-    }
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
 }
 </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="card">
-
-        <div class="heart">❤️</div>
-
-        <h1>Happy Birthday Chisimdi 🎂🎉</h1>
-
-        <p>
-            A special message is waiting for you...
-        </p>
-
-        <button onclick="showLetter()">
-            Click Here My Love ❤️
-        </button>
-
-        <div id="letter">
-            <h2>To My Dearest Chisimdi ❤️</h2>
-
-            <p>
-                Happy Birthday, my love. Today is not just another day;
-                it is the day someone truly special came into this world.
-                A day that brought a beautiful soul, a kind heart, and a
-                wonderful person into the lives of everyone fortunate enough
-                to know you.
-            </p>
-
-            <p>
-                Chisimdi, words can never fully express how much you mean to me.
-                Every conversation with you, every smile you share, and every
-                moment spent thinking about you makes my world brighter.
-                You have a way of making ordinary days feel special, and your
-                presence alone brings happiness into my life.
-            </p>
-
-            <p>
-                On your birthday, I want you to know how deeply appreciated,
-                admired, and cherished you are. You deserve every good thing
-                life has to offer. You deserve happiness that never fades,
-                success that exceeds your expectations, peace in your heart,
-                and love that surrounds you every single day.
-            </p>
-
-            <p>
-                I pray that this new chapter of your life brings countless
-                blessings, beautiful memories, good health, laughter, and
-                opportunities that take you closer to all your dreams.
-                May every step you take lead you to greatness.
-            </p>
-
-            <p>
-                Thank you for being the amazing person you are.
-                Thank you for your kindness, your beauty, your strength,
-                and the joy you bring into my life.
-            </p>
-
-            <p>
-                If there is one thing I wish for today, it is that your smile
-                never fades. Because seeing you happy is one of the most
-                beautiful things in the world to me.
-            </p>
-
-            <p>
-                Happy Birthday once again, Chisimdi. May your day be filled
-                with love, laughter, and unforgettable moments. No matter
-                where life takes us, I will always be grateful for you and
-                the place you hold in my heart.
-            </p>
-
-            <p>
-                With all my love,<br>
-                ❤️ Muheez ❤️
-            </p>
-        </div>
-
-    </div>
+<div id="giftScreen">
+<h1>🎂 Happy Birthday Chisimdi 🎂</h1>
+<p>Someone special has a surprise for you... ❤️</p>
+<br>
+<div class="gift" onclick="openGift()">🎁</div>
+<p>Tap the gift to open it 💝</p>
 </div>
 
+<div id="mainContent">
+
+<h1>🎉 HAPPY BIRTHDAY CHISIMDI 🎉</h1>
+
+<div class="image-box">
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600" alt="Love">
+</div>
+
+<h2>💖 The Most Beautiful Birthday Girl 💖</h2>
+
+<div class="message">
+
+<p>❤️ Dear Chisimdi ❤️</p>
+
+<p>
+Today is not just another day. Today is the day an amazing,
+beautiful, intelligent, sweet, kind and wonderful girl was born. 🥰
+</p>
+
+<p>
+I honestly think the world became a better place the moment you arrived.
+The stars probably shined brighter, the birds probably sang louder,
+and somewhere the universe smiled because it knew someone special had arrived. ✨🌍❤️
+</p>
+
+<p>
+You deserve all the happiness in the world today and always. 🌹
+May your smile never fade, may your dreams come true, and may every
+beautiful thing your heart desires find its way to you. 💕
+</p>
+
+<p>
+😂 OFFICIAL BIRTHDAY RULES 😂
+<br><br>
+🎂 Cake calories do not count today.<br>
+👑 You are officially a queen for 24 hours.<br>
+💃 Dancing is compulsory.<br>
+😎 Looking beautiful is mandatory.<br>
+❤️ Smiling is required at least 100 times.
+</p>
+
+<p>
+Thank you for being such a wonderful person.
+Thank you for existing.
+Thank you for making life brighter simply by being yourself. 💖
+</p>
+
+<p>
+If I could give you one gift today,
+it would be the ability to see yourself the way others see you —
+beautiful, valuable, precious and unforgettable. 🥹❤️
+</p>
+
+<p>
+May God bless you abundantly,
+protect you,
+guide you,
+and fill your life with endless joy and success. 🙏✨
+</p>
+
+<p>
+And remember...
+</p>
+
+<h2>
+💌 YOU ARE AMAZING 💌<br>
+💖 YOU ARE SPECIAL 💖<br>
+🥰 YOU ARE APPRECIATED 🥰<br>
+🌹 YOU ARE LOVED 🌹
+</h2>
+
+<p>
+Happy Birthday once again, Chisimdi. 🎂❤️🎉
+</p>
+
+<p>
+With lots of love,<br><br>
+❤️ Muheez ❤️
+</p>
+
+</div>
+
+<button onclick="showSecret()">
+💝 Click For Final Surprise 💝
+</button>
+
+<div id="secret">
+<h1>🥹❤️</h1>
+<h2>
+If birthdays were a competition,<br>
+you would win first place every year. 🏆💖
+</h2>
+
+<h2>
+Thank you for being you, Chisimdi. ❤️
+</h2>
+
+<h1>
+🎂 HAPPY BIRTHDAY 🎂
+</h1>
+</div>
+
+</div>
+
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-function showLetter(){
-    document.getElementById("letter").style.display = "block";
+
+function openGift(){
+document.getElementById("giftScreen").style.display="none";
+document.getElementById("mainContent").style.display="block";
 }
+
+function showSecret(){
+document.getElementById("secret").style.display="block";
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML=["❤️","💖","💕","💘","💝","💗"][Math.floor(Math.random()*6)];
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+}
+
+setInterval(createHeart,300);
+
 </script>
 
 </body>
-</html>
+</html>            
